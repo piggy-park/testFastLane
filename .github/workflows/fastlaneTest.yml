@@ -20,7 +20,7 @@ jobs:
             bundler-cache: true
       - name: add_plugin
         run: |
-            [sudo] bundle install
+            bundle install
             fastlane add_plugin versioning
       - name: fastLaneAction
         uses: maierj/fastlane-action@v3.0.0
