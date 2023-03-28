@@ -1,0 +1,21 @@
+default_platform(:ios)
+
+lane :beta do
+  
+ clear_derived_data
+
+ tag = "v23.523.123-rc/qa"
+ newVersion = tag.split('v')[1].split('-')[0].strip
+
+ increment_version_number_in_plist(
+   version_number: newVersion,
+   xcodeproj: "testfastLane.xcodeproj",
+   target: "testfastLane",
+   plist_build_setting_support: true
+ )
+
+  version = get_version_number(xcodeproj: "testfastLane.xcodeproj")  
+  
+
+end
+
