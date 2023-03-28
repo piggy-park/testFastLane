@@ -1,0 +1,28 @@
+name: Xcode - Build and Analyze
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Test FastLane Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v3
+      - name: ruby_setup
+      - uses: ruby/setup-ruby@v1
+        with:
+            ruby-version: '3.0'
+            bundler-cache: true
+      - name: add_plugein
+        run: |
+            fastlane add_plugin versioning
+      - name: fastLaneAction
+      - uses: maierj/fastlane-action@v3.0.0
+        with:
+            lane: 'beta'
