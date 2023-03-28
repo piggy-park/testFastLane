@@ -14,7 +14,8 @@ jobs:
       - name: add_plugin
         run: |
             touch ./Gemfile
-#             fastlane add_plugin versioning
+            bundle install
+            fastlane add_plugin versioning
       - name: Checkout
         uses: actions/checkout@v3
       - name: ruby_setUp
