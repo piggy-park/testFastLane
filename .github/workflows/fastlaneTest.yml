@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: add_plugin
+        run: |
+            touch ./Gemfile
+#             fastlane add_plugin versioning
       - name: Checkout
         uses: actions/checkout@v3
       - name: ruby_setUp
@@ -18,10 +22,6 @@ jobs:
         with:
             ruby-version: '3.0'
             bundler-cache: true
-      - name: add_plugin
-        run: |
-            touch ./Gemfile
-#             fastlane add_plugin versioning
       - name: fastLaneAction
         uses: maierj/fastlane-action@v3.0.0
         with:
